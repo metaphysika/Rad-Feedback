@@ -18,54 +18,11 @@ output_path1 = r'W:\SHARE8 Physics\Software\python\scripts\clahn\Radfeedback Dat
 
 
 # Set the email addresses of the recipients for the daily report
-# recipients = ['SCOTT.OSOWSKI@SANFORDHEALTH.ORG','Tara.Kazemba@SanfordHealth.org','Jason.Schaffer@jrmcnd.com',
-#             'Amanda.Grocott@SanfordHealth.org','Michelle.Jensen@SanfordHealth.org','Brady.Harms@SanfordHealth.org','Emily.Woltjer@sanfordhealth.org',
-#             'Kari.Zottnick@SanfordHealth.org','Derek.Maattala@SanfordHealth.org','amanda.grifka@sanfordhealth.org','Jennifer.Bolland@SanfordHealth.org',
-#             'teresa.kallstrom@sanfordhealth.org','Cher.Gilje@SanfordHealth.org','Jan.Gieszler@SanfordHealth.org','Alanda.Small@SanfordHealth.org',
-#             'Samantha.Tobin@SanfordHealth.org','Scott.Smith@SanfordHealth.org','Dawn.McCarty@SanfordHealth.org','Andrea.Wald@SanfordHealth.org',
-#             'Amanda.Gunwall@SanfordHealth.org','Jeremy.Wagner@SanfordHealth.org','Shelley.Kleinsasser@SanfordHealth.org','Dawn.Michels@sanfordhealth.org',
-#             'Patricia.Suchy@SanfordHealth.org','Rhonda.Kutz@sanfordhealth.org','Shonagh.Sorenson@sanfordhealth.org','Melissa.Anderson@sanfordhealth.org',
-#             'Tammy.Clemens@sanfordhealth.org','Pat.Sjolie@perhamhealth.org','Jo.Heisler@sanfordhealth.org','Lona.Hermes@sanfordhealth.org','Cara.Jordheim@sanfordhealth.org',
-#             'Melissa.Theesfeld@SanfordHealth.org','Lisa.Mathues@SanfordHealth.org','Michelle.Currence@sanfordhealth.org','Leah.Sween@SanfordHealth.org',
-#             'Chris.Walski@sanfordhealth.org','Martha.Meyer@sanfordhealth.org','Michael.Schultz@sanfordhealth.org','Seth.Undem@sanfordhealth.org',
-#             'patricia.hetland@sanfordhealth.org','danielle.m.goetz@sanfordhealth.org','theresa.vogel@sanfordhealth.org','wendy.burger@sanfordhealth.org',
-#             'carmella.arel@sanfordhealth.org','Jason.Jorgenson@SanfordHealth.org','janice.larson@sanfordhealth.org','cheryl.hanson@sanfordhealth.org',
-#             'christopher.lahn@sanfordhealth.org','Tara.Nelson@perhamhealth.org','Wade.Adkins@sanfordhealth.org','Jessica.R.Nielsen@SanfordHealth.org',
-#             'Amanda.Omlid@SanfordHealth.org','DHAGLUND@MCHSND.ORG','Lacy.Majerus@SanfordHealth.org','BARBARA.SCHERMER@SANFORDHEALTH.ORG','Wade.Herrmann@SanfordHealth.org',
-#             'April.Hoaby@SanfordHealth.org','TANYA.CONROYPITTMAN@SANFORDHEALTH.ORG','Michelle.Whaley@SanfordHealth.org','JAIME.CHRISTENSON@SANFORDHEALTH.ORG',
-#             'Lonn.Boyd@sanfordhealth.org', ]
 
-# recipients = ['christopher.lahn@sanfordhealth.org', 'lahn0005@umn.edu', 'lahn0005@icloud.com', 'Heidi.Earl@SanfordHealth.org',]
-# recipients = ['physics@sanfordhealth.org', 'christopher.lahn@sanfordhealth.org', 'Zerak.Sarki@SanfordHealth.org', ]
-recipients = ['christopher.lahn@sanfordhealth.org', ]
+recipients = [ ]
 
 # Create dictionary to map technologist name to email address
-email_dict = {'Epic, User': 'christopher.lahn@sanfordhealth.org', 'St Peter, Meghan S': 'Meghan.St.Peter@SanfordHealth.org',
-    'Johnson, Joan L': 'Joan.L.Johnson@SanfordHealth.org', 'Quaas, Sarah L': 'christine.hoffmann@sanfordhealth.org',
-    'Antin, Loretta M': 'LorettaMaggie.Antin@SanfordHealth.org',
-    'Lindquist-Vevea, Darlene M': 'Darlene.Lindquist@sanfordhealth.org',
-    'Conroy Pittman, Tanya C': 'Tanya.Conroypittman@SanfordHealth.org', 'Gullicks, Kimberly J': 'Kim.Gullicks@kmhc.net',
-    'Krueger, Cathy': 'ckrueger@imagingsolutionsinc.com', 'Carlson, Kari A': 'Kari.Carlson3@SanfordHealth.org',
-    'Janke, Mary': 'Mary.Janke@PerhamHealth.org', 'Nielsen, Jessica R': 'Jessica.R.Nielsen@SanfordHealth.org',
-    'Fitzgerald, Jacquelyn J': 'Jackie.Fitzgerald@SanfordHealth.org', 'Sterling, Chelsee': 'CSterling@mchsnd.org',
-    'St. Germain, Heather J': 'Heather.St.germain@SanfordHealth.org',
-    'Christianson, Jennifer A': 'Jennifer.A.Christianson@sanfordhealth.org', 'Larson, Dawn': 'Dawn.R.Larson@SanfordHealth.org',
-    'Johnson, Megan M': 'Megan.Johnson4@SanfordHealth.org', 'Jaenisch, Richard L': 'Richard.Jaenisch2@SanfordHealth.org',
-    'Oconnell, Cynthia J': 'Cindy.O\'Connell@SanfordHealth.org', 'Applegate, Kaylyn': 'KApplegate@mchsnd.org',
-    'Schwalbe, Mary Jo': 'MaryJo.Schwalbe@SanfordHealth.org', 'Samuelson, Lisa': 'lsamuelson@mchsnd.org',
-    'Sele, Hope': 'Hope.Sele@kmhc.net', 'Heibel, Hannah M': 'HHeibel@riverviewhealth.org',
-    'Schaffer, Jason': 'Jason.Schaffer@jrmcnd.com','Teske, Aimee': 'ATESKE@jrmcnd.com', 'Miller, Ashely': 'amiller@jrmcnd.com',
-    'Nordstrom, Greg D': 'gnordstrom@jrmcnd.com', 'Sobolik, Heather': 'Heather.Sobolik@jrmcnd.com',
-    'Breland, James': 'James.Breland@jrmcnd.com', 'Thorlakson, Jessica': 'jthorlakson@jrmcnd.com',
-    'Quandt, Madison': 'Madison.Quandt@SanfordHealth.org', 'LeFevre, Maria': 'Maria.Lefevre@jrmcnd.com',
-    'Bitz, Nathan A': 'nbitz@jrmcnd.com', 'Klundt, Nichole Rahn': 'nklundt@jrmcnd.com', 'Moser, Noelle': 'Noelle.Moser@jrmcnd.com',
-    'Loepp, Renae': 'Renae.Loepp@jrmcnd.com', 'Gjermundson, Hali J': 'HGjermundson@mchsnd.org', 'Anderson, Barbara J': 'Barbara.Anderson2@SanfordHealth.org',
-    'Farner, Brandi J': 'Brandi.Heyden@SanfordHealth.org', 'Johnson, Sandra':'Sandra.Johnson2@SanfordHealth.org',
-    'Anderson, Rebecca L' : 'REBECCA.LEE.ANDERSON@SANFORDHEALTH.ORG', "Dagen, Noelle P" : "Noelle.Dagen@kmhc.net", 
-    'Olson, Andrea I' : 'ANDREA.IONE.OLSON@SANFORDHEALTH.ORG', 'Olson, Jessica R' : 'christopher.lahn@sanfordhealth.org',
-    'Urdahl, Boyce' : 'BURDAHL@MCHSND.ORG', 'Salazar, Paul' : 'PSALAZAR@MCHSND.ORG','Wold, Hannah':'Hannah.Wold2@SanfordHealth.org',
-    'Arrington, Alex': 'ALEX.ARRINGTON@MCHSND.ORG', 'Hansen, Lauren F': 'LAUREN.HANSEN3@SANFORDHEALTH.ORG', 'Aquino Velasco, Alan A': 'ALAN.AQUINOVELASCO@SANFORDHEALTH.ORG',
-    'Anderson, Ashley': 'ASHLEY.ANDERSON3@SANFORDHEALTH.ORG','Faber, Ashley': 'ASHLEY.FABER@PERHAMHEALTH.ORG', 'nan': 'christopher.lahn@sanfordhealth.org',}
+email_dict = {}
 
 # open the file(s) to process in the incoming folder and resave so it doesn't have a password on it.
 dirname = py.path.local(r'W:\SHARE8 Physics\Software\python\scripts\clahn\Radfeedback Database\access\test\incoming_daily_reports')
@@ -90,69 +47,6 @@ cursor = conn.cursor()
 
 # Clear the 'daily' table
 cursor.execute('DELETE FROM daily')
-
-# Loop through each file in the folder
-# for file_name in os.listdir(folder_path):
-#     if file_name.endswith('.xlsx'):
-#         # Read Excel file into a pandas DataFrame
-#         file_path = os.path.join(folder_path, file_name)
-#         df = pd.read_excel(file_path)
-#         # set column headers to match database headers
-#         df.columns = [
-#                     'mrn', 'accession', 'begin_exam', 'quality_user',
-#                     'quality_element', 'quality_comment', 'technologist',
-#                     'dept', 'category', 'procedure'
-#                     ]
-#         df['accession'] = df['accession'].astype('object')
-#         df = df.astype(str)
-#         # print(df.dtypes)
-#         # Loop through each row in the DataFrame
-#         for i, row in df.iterrows():
-#             # Check if row is unique in the 'test' table
-#             cursor.execute("SELECT COUNT(*) FROM test WHERE mrn = ? AND accession = ? AND begin_exam = ? AND quality_user = ? AND quality_element = ? AND quality_comment = ? AND technologist = ? AND dept = ? AND category = ? AND procedure = ?",
-#                            row['mrn'], row['accession'], row['begin_exam'], row['quality_user'], row['quality_element'], row['quality_comment'], row['technologist'], row['dept'], row['category'], row['procedure'])
-#             count = cursor.fetchone()[0]
-#             if count == 0:
-#                 # Append data to 'test' table
-#                 cursor.execute("INSERT INTO test VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-#                     row.astype(str)['mrn'], row.astype(str)['accession'], row.astype(str)['begin_exam'], row.astype(str)['quality_user'], row.astype(str)['quality_element'], row.astype(str)['quality_comment'], row.astype(str)['technologist'], row.astype(str)['dept'], row.astype(str)['category'], row.astype(str)['procedure'])
-
-
-#                 # Append data to 'daily' table
-#                 cursor.execute("INSERT INTO daily VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-#                     row.astype(str)['mrn'], row.astype(str)['accession'], row.astype(str)['begin_exam'], row.astype(str)['quality_user'], row.astype(str)['quality_element'], row.astype(str)['quality_comment'], row.astype(str)['technologist'], row.astype(str)['dept'], row.astype(str)['category'], row.astype(str)['procedure'])
-# Loop through each file in the folder
-# # Loop through each file in the folder
-# for file_name in os.listdir(folder_path):
-#     if file_name.endswith('.xlsx'):
-#         # Read Excel file into a pandas DataFrame
-#         file_path = os.path.join(folder_path, file_name)
-#         df = pd.read_excel(file_path)
-#         # set column headers to match database headers
-#         df.columns = [
-#                     'mrn', 'accession', 'begin_exam', 'quality_user',
-#                     'quality_element', 'quality_comment', 'technologist',
-#                     'dept', 'category', 'procedure'
-#                     ]
-#         df['accession'] = df['accession'].astype('object')
-#         df = df.astype(str)
-#         # print(df.dtypes)
-#         # Loop through each row in the DataFrame
-#         for i, row in df.iterrows():
-#             # Check if row is unique in the 'test' table
-#             cursor.execute("SELECT COUNT(*) FROM test WHERE mrn = ? AND accession = ? AND begin_exam = ? AND quality_user = ? AND quality_element = ? AND quality_comment = ? AND technologist = ? AND dept = ? AND category = ? AND procedure = ?",
-#                            (row['mrn'], row['accession'], row['begin_exam'], row['quality_user'], row['quality_element'], row['quality_comment'], row['technologist'], row['dept'], row['category'], row['procedure']))
-#             count = cursor.fetchone()[0]
-#             if count == 0:
-#                 # Append data to 'test' table
-#                 cursor.execute("INSERT INTO test VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-#                     (row['mrn'], row['accession'], row['begin_exam'], row['quality_user'], row['quality_element'], row['quality_comment'], row['technologist'], row['dept'], row['category'], row['procedure']))
-#                 conn.commit()
-
-#                 # Append data to 'daily' table
-#                 cursor.execute("INSERT INTO daily VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
-#                     (row['mrn'], row['accession'], row['begin_exam'], row['quality_user'], row['quality_element'], row['quality_comment'], row['technologist'], row['dept'], row['category'], row['procedure']))
-#                 conn.commit()
 
 # Loop through each file in the folder
 for file_name in os.listdir(folder_path):
@@ -198,41 +92,6 @@ test_df = pd.read_sql_query("SELECT * FROM test", conn)
 test_df.to_excel(output_path1, index=False)
 # test_df.to_excel(output_path2, index=False)
 
-
-# #Copy master to SharePoint
-# fileMaster = py.path.local(r'W:\SHARE8 Physics\Software\python\scripts\clahn\Radfeedback Database\access\test\masterfile\test_master.xlsx')
-
-# try:
-#     fileMaster.copy(py.path.local(r'\\internal.sanfordhealth.org@SSL\DavWWWRoot\departments'
-#                                   r'\radiology\private\fargo\qcforms\Shared Documents\EPIC_Rad_Feedback_Master'))
-#     fileMaster.copy(py.path.local(r'\\internal.sanfordhealth.org@SSL\DavWWWRoot\departments'
-#                                   r'\radiology\private\RadBIS\physics\Shared Documents\epic_rad_feedback_master'))
-
-# except Exception as err:
-#     print("you may have not been signed in.")
-#     pass
-
-# Email attachments were being removed by Sanford when trying to send via Outlook app. Decideced to direclty embed html table.
-# # If no feedback (empty daily_df) send no feedback message. Otherwise send daily report.
-# if daily_df.empty:
-#     # Send email indicating that no feedback was left today
-#     outlook = win32.Dispatch('outlook.application')
-#     mail = outlook.CreateItem(0)
-#     mail.To = ';'.join(recipients)
-#     mail.Subject = 'TEST TEST TEST AUTOMATED MESSAGE: No Radiologist Feedback Today'
-#     mail.Body = 'THIS IS A TEST MESSAGE. PLEASE IGNORE. There was no radiologist feedback left today.'
-#     mail.Send()
-# else:
-#     # Email 'daily' table as an Excel attachment to multiple recipients using Outlook
-#     outlook = win32.Dispatch('outlook.application')
-#     mail = outlook.CreateItem(0)
-#     mail.To = 'physics@sanfordhealth.org'  # ';'.join(recipients)
-#     mail.Subject = 'TEST TEST TEST AUTOMATED MESSAGE: Radiologist Feedback Daily Report'
-#     mail.Body = 'THIS IS A TEST MESSAGE. PLEASE IGNORE. Please find the daily report attached.'
-
-#     attachment = mail.Attachments.Add(output_path)
-#     attachment.PropertyAccessor.SetProperty("http://schemas.microsoft.com/mapi/proptag/0x3712001F", "Daily Report.xlsx")
-#     mail.Send()
 
 # Create a copy of the DataFrame
 daily_df_copy = daily_df.copy()

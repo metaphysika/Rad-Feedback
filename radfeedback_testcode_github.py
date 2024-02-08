@@ -27,7 +27,7 @@ dailyreportname2 = ("W:\\SHARE8 Physics\\Software\\python\\scripts\\clahn\\EPIC 
 
 # This will unprotect workbook and save it again.
 xcl = win32.Dispatch('Excel.Application')
-pw_str = 'Sanford1$'
+pw_str = ''
 wb = xcl.Workbooks.Open(dailyreportname, False, False, None, pw_str)
 xcl.DisplayAlerts = False
 wb.SaveAs(dailyreportname, None, '', '')
@@ -35,10 +35,6 @@ xcl.Quit()
 
 
 # this converts excel file to csv file.
-# pd.read_excel parses usecols differently than read_csv.
-# Converting to csv seemed quicker than reworking the entire code with excel.
-# https://github.com/pandas-dev/pandas/issues/18273
-# https://stackoverflow.com/questions/10802417/how-to-save-an-excel-worksheet-as-csv
 df = pd.read_excel(dailyreportname).to_csv(dailyreportname2, index=False)
 
 
@@ -48,7 +44,6 @@ df = pd.read_excel(dailyreportname).to_csv(dailyreportname2, index=False)
 # Excel removes double quotes around data.
 todaydate2 = time.strftime("%m%d%Y")
 # naming of daily report for archival. The "/" was necessary to set the file path along with the todaydate function.
-# dailyreportname = "H:\\EPIC Rad Feedback\\archived_daily_reports/" + todaydate + " daily_radfeedback_equip_processed_report" + ".csv"
 dailyreportname2 = ("W:\\SHARE8 Physics\\Software\\python\\scripts\\clahn\\EPIC Rad Feedback\\incoming_epic_rad_reports/" +
                     todaydate2 + " daily_radfeedback_equip_report" + ".csv")
 xl = win32.DispatchEx("Excel.Application")
@@ -61,7 +56,6 @@ xl.Quit()
 
 
 # Load master data csv
-# fileMaster = py.path.local(r'H:\EPIC Rad Feedback\master_report\masterreport.csv')
 fileMaster = py.path.local(r'W:\SHARE8 Physics\Software\python\scripts\clahn\EPIC Rad Feedback\master_report\masterreport.csv')
 if not fileMaster.isfile():
     raise ValueError()
@@ -84,9 +78,8 @@ except Exception:
     pass
 
 
-# pandas idea for reading in data from spreadsheet.
+
 # Loop through each file report, loading CSV data, and appending that data to the master data frame.
-# dirname = py.path.local('H:\EPIC Rad Feedback\incoming_epic_rad_reports')
 dirname = py.path.local(r'W:\SHARE8 Physics\Software\python\scripts\clahn\EPIC Rad Feedback\incoming_epic_rad_reports')
 files = []
 # for f in dirname.visit(fil='*.xlsx', bf=True):
@@ -106,8 +99,7 @@ df = pd.read_csv(files, usecols=['MRN', 'Accession #', 'Begin Exam Time', 'Quali
                                  'Dept', 'Category', 'Procedure'])
 
 # print (df)
-# Declared these dataframe elements as strings so a blank value doesn't through error.
-# It now just prints "nan" in email for blank values on report.
+
 
 df["MRN"] = df["MRN"].astype(str)
 df["Accession #"] = df["Accession #"].astype(str)
@@ -137,9 +129,6 @@ merged = merged.drop_duplicates().sort_index()
 idx = pd.IndexSlice
 df = merged.loc[idx[:, 'daily'], :]
 
-# print (df)
-
-
 # Append the filtered daily report to the dfMaster
 dfMaster = dfMaster.append(df, ignore_index=True)
 
@@ -150,7 +139,6 @@ dfMaster.to_csv(fileMaster, index=False)
 # Create current date for file name of archived daily report
 todaydate = time.strftime("%Y%m%d")
 # naming of daily report for archival. The "/" was necessary to set the file path along with the todaydate function.
-# dailyreportname = "H:\\EPIC Rad Feedback\\archived_daily_reports/" + todaydate + " daily_radfeedback_equip_processed_report" + ".csv"
 dailyreportname3 = "W:\\SHARE8 Physics\\Software\\python\\scripts\\clahn\\EPIC Rad Feedback\\archived_daily_reports/" + \
     todaydate + " daily_radfeedback_equip_processed_report" + ".csv"
 
@@ -177,58 +165,11 @@ except Exception as err:
 
 
 # This sends the daily report emails to supervisors
-# TODO: if we need to change reports to be region specific, make a list out supervisors that comport with site name in report.
-# TODO: the program can generate a daily report by building a dataframe by site name.
-# send_notification2()
-
-EmailSender().send_email("christopher.lahn@sanfordhealth.org; Heidi.Earl@SanfordHealth.org;"
-                         "alicia.underdahl@sanfordhealth.org; sarah.anderson@sanfordhealth.org;"
-                         "cheryl.hanson@sanfordhealth.org; Jillian.Haseleu@SanfordHealth.org;"
-                         " janice.larson@sanfordhealth.org; ladine.cruff@sanfordhealth.org;"
-                         " carmella.arel@sanfordhealth.org; wendy.burger@sanfordhealth.org;"
-                         "theresa.vogel@sanfordhealth.org; danielle.m.goetz@sanfordhealth.org;"
-                         "patricia.hetland@sanfordhealth.org; Deborah.Mackner@sanfordhealth.org;"
-                         " Seth.Undem@sanfordhealth.org; Michael.Schultz@sanfordhealth.org;"
-                         " Martha.Meyer@sanfordhealth.org; Chris.Walski@sanfordhealth.org;"
-                         " Leah.Sween@SanfordHealth.org; Michelle.Currence@sanfordhealth.org;"
-                         " Vicky.Guderian@SanfordHealth.org; Lisa.Mathues@SanfordHealth.org;"
-                         " Erin.Swyter@sanfordhealth.org; Cara.Jordheim@sanfordhealth.org;"
-                         " Lona.Hermes@sanfordhealth.org; Jo.Heisler@sanfordhealth.org;"
-                         " Jessica.R.Nielsen@SanfordHealth.org; Rhonda.Kutz@sanfordhealth.org;"
-                         " Susan.Holzbauer@sanfordhealth.org; Sarah.Stock@mahnomenhealthcenter.com;"
-                         " Amanda.Schmidt@SanfordHealth.org; tara.nelson@perhamhealth.org;"
-                         " Teresa.Kallstrom@sanfordhealth.org; Amy.Tobey@SanfordHealth.org;"
-                         " Justin.Stromme@sanfordhealth.org; Robert.Hagen@SanfordHealth.org;"
-                         " Pat.Sjolie@perhamhealth.org; Cathy.Loe@sanfordhealth.org;"
-                         " Tammy.Clemens@sanfordhealth.org; Melissa.Anderson@sanfordhealth.org;"
-                         " Jackie.Fitzgerald@SanfordHealth.org; Shonagh.Sorenson@sanfordhealth.org;"
-                         " Rhonda.Kutz@sanfordhealth.org; Patricia.Suchy@SanfordHealth.org;"
-                         " Dawn.Michels@sanfordhealth.org; Shelley.Kleinsasser@SanfordHealth.org;"
-                         " Jeremy.Wagner@SanfordHealth.org; Amanda.Gunwall@SanfordHealth.org;"
-                         " Andrea.Wald@SanfordHealth.org; Dawn.McCarty@SanfordHealth.org;"
-                         " Scott.Smith@SanfordHealth.org; Samantha.Tobin@SanfordHealth.org;"
-                         " Alanda.Small@SanfordHealth.org; Jan.Gieszler@SanfordHealth.org;"
-                         " William.Beard@SanfordHealth.org; Cher.Gilje@SanfordHealth.org;"
-                         " Jennifer.A.Christianson@sanfordhealth.org; Christine.Hoffmann@SanfordHealth.org;"
-                         " amanda.grifka@sanfordhealth.org; Derek.Maattala@SanfordHealth.org",
-                         "Automated Message:  Image Quality Radiologist Feedback Daily Report",
-                         "Attached is the Image Quality Radiologist Feedback Daily Report."
-                         "  This is an automated message.  No reply is necessary.  Please contact"
-                         " Physics if you have any questions.", dailyreportname3)
+EmailSender().send_email(, dailyreportname3)
 
 
 # create dictionary for correcting email address.  Useful for people who have same name or names sith St. prefix.
-d = {'Epic, User': 'christopher.lahn@sanfordhealth.org', 'St Peter, Meghan S': 'Meghan.St.Peter@SanfordHealth.org',
-    'Johnson, Joan L': 'Joan.L.Johnson@SanfordHealth.org', 'Quaas, Sarah L': 'christine.hoffmann@sanfordhealth.org',
-    'Antin, Loretta M': 'LorettaMaggie.Antin@SanfordHealth.org','Lindquist-Vevea, Darlene M': 'Darlene.Lindquist@sanfordhealth.org',
-    'Conroy Pittman, Tanya C': 'Tanya.Conroypittman@SanfordHealth.org', 'Gullicks, Kimberly J': 'Kim.Gullicks@kmhc.net',
-    'Krueger, Cathy': 'ckrueger@imagingsolutionsinc.com', 'Carlson, Kari A': 'Kari.Carlson3@SanfordHealth.org',
-    'Janke, Mary': 'Mary.Janke@PerhamHealth.org', 'Nielsen, Jessica R': 'Jessica.R.Nielsen@SanfordHealth.org',
-    'Fitzgerald, Jacquelyn J': 'Jackie.Fitzgerald@SanfordHealth.org', 'Sterling, Chelsee': 'CSterling@mchsnd.org',
-    'St. Germain, Heather J': 'Heather.St.germain@SanfordHealth.org',
-    'Christianson, Jennifer A': 'Jennifer.A.Christianson@sanfordhealth.org', 'Larson, Dawn': 'Dawn.R.Larson@SanfordHealth.org',
-    'Johnson, Megan M': 'Megan.Johnson4@SanfordHealth.org', 'Jaenisch, Richard L': 'Richard.Jaenisch2@SanfordHealth.org',
-    'Oconnell, Cynthia J': 'Cindy.O\'Connell@SanfordHealth.org', 'Applegate, Kaylyn': 'KApplegate@mchsnd.org'}
+d = {}
 
 
 # This creates a mask of just the reasons we want.  It then itterates through the masked data frame and triggers the email for each row.
@@ -309,8 +250,6 @@ for idx, row in df[df["Quality Element"].str.contains("Physics")].iterrows():
                              " \r\n \r\nThank you, \r\n \r\nImaging Physics \r\nphysics@sanfordhealth.org")
 
 # Move file after all functions have executed
-# moves unfiltered report to test archival folder
-# shutil.move(str(files), py.path.local(r"W:\SHARE8 Physics\Software\python\scripts\clahn\EPIC Rad Feedback\archived_daily_reports_unfiltered"))
 files.copy(py.path.local(r"W:\SHARE8 Physics\Software\python\scripts\clahn\EPIC Rad Feedback\archived_daily_reports_unfiltered"))
 os.remove(files)
 os.remove(dailyreportname)

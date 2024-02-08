@@ -18,56 +18,13 @@ output_path2 = r'\\internal.sanfordhealth.org@SSL\DavWWWRoot\departments\radiolo
 
 
 # Set the email addresses of the recipients for the daily report
-recipients = ['SCOTT.OSOWSKI@SANFORDHEALTH.ORG','Tara.Kazemba@SanfordHealth.org','Jason.Schaffer@jrmcnd.com',
-            'Amanda.Grocott@SanfordHealth.org','Brady.Harms@SanfordHealth.org','Emily.Woltjer@sanfordhealth.org',
-            'Kari.Zottnick@SanfordHealth.org','Derek.Maattala@SanfordHealth.org','amanda.grifka@sanfordhealth.org','Jennifer.Bolland@SanfordHealth.org',
-            'Cher.Gilje@SanfordHealth.org','Jan.Gieszler@SanfordHealth.org','Alanda.Small@SanfordHealth.org',
-            'Samantha.Tobin@SanfordHealth.org','Scott.Smith@SanfordHealth.org','Andrea.Wald@SanfordHealth.org',
-            'Amanda.Gunwall@SanfordHealth.org','Jeremy.Wagner@SanfordHealth.org','Shelley.Kleinsasser@SanfordHealth.org','Dawn.Michels@sanfordhealth.org',
-            'Patricia.Suchy@SanfordHealth.org','Rhonda.Kutz@sanfordhealth.org','Shonagh.Sorenson@sanfordhealth.org','Melissa.Anderson@sanfordhealth.org',
-            'Pat.Sjolie@perhamhealth.org','Lona.Hermes@sanfordhealth.org','Cara.Jordheim@sanfordhealth.org',
-            'Melissa.Theesfeld@SanfordHealth.org','Lisa.Mathues@SanfordHealth.org','Michelle.Currence@sanfordhealth.org','Leah.Sween@SanfordHealth.org',
-            'Chris.Walski@sanfordhealth.org','Donna.Newman@sanfordhealth.org','Seth.Undem@sanfordhealth.org', 'lonn.boyd@sanfordhealth.org',
-            'patricia.hetland@sanfordhealth.org','danielle.m.goetz@sanfordhealth.org','theresa.vogel@sanfordhealth.org','wendy.burger@sanfordhealth.org',
-            'carmella.arel@sanfordhealth.org','Jason.Jorgenson@SanfordHealth.org','janice.larson@sanfordhealth.org','cheryl.hanson@sanfordhealth.org',
-            'christopher.lahn@sanfordhealth.org','Tara.Nelson@perhamhealth.org','Wade.Adkins@sanfordhealth.org','Jessica.R.Nielsen@SanfordHealth.org',
-            'Amanda.Omlid@SanfordHealth.org','DHAGLUND@MCHSND.ORG','Lacy.Majerus@SanfordHealth.org','BARBARA.SCHERMER@SANFORDHEALTH.ORG','Wade.Herrmann@SanfordHealth.org',
-            'April.Hoaby@SanfordHealth.org','TANYA.CONROYPITTMAN@SANFORDHEALTH.ORG','Michelle.Whaley@SanfordHealth.org',
-            'Lonn.Boyd@sanfordhealth.org', 'Brent.Colby@sanfordhealth.org', 'Melanie.Murra@sanfordhealth.org','Brianna.Iverson@SanfordHealth.org',
-            'Tiffany.Macziewski@sanfordhealth.org', 'Jaime.Monroe@sanfordhealth.org', 'Zerak.Sarki@SanfordHealth.org', 'ryan.bosca@sanfordhealth.org', 'Ryan.Kalmoe@SanfordHealth.org',
-            'Sarah.Brown@SanfordHealth.org',]
+recipients = []
 
 # Used for testing to only send daily report to me
 # recipients = ['christopher.lahn@sanfordhealth.org', ]
 
 # Create dictionary to map technologist name to email address
-email_dict = {'Epic, User': 'christopher.lahn@sanfordhealth.org', 'St Peter, Meghan S': 'Meghan.St.Peter@SanfordHealth.org',
-    'Johnson, Joan L': 'Joan.L.Johnson@SanfordHealth.org', 'Quaas, Sarah L': 'christine.hoffmann@sanfordhealth.org',
-    'Antin, Loretta M': 'LorettaMaggie.Antin@SanfordHealth.org',
-    'Lindquist-Vevea, Darlene M': 'Darlene.Lindquist@sanfordhealth.org',
-    'Conroy Pittman, Tanya C': 'Tanya.Conroypittman@SanfordHealth.org', 'Gullicks, Kimberly J': 'Kim.Gullicks@kmhc.net',
-    'Krueger, Cathy': 'ckrueger@imagingsolutionsinc.com', 'Carlson, Kari A': 'Kari.Carlson3@SanfordHealth.org',
-    'Janke, Mary': 'Mary.Janke@PerhamHealth.org', 'Nielsen, Jessica R': 'Jessica.R.Nielsen@SanfordHealth.org',
-    'Fitzgerald, Jacquelyn J': 'Jackie.Fitzgerald@SanfordHealth.org', 'Sterling, Chelsee': 'CSterling@mchsnd.org',
-    'St. Germain, Heather J': 'Heather.St.germain@SanfordHealth.org',
-    'Christianson, Jennifer A': 'Jennifer.A.Christianson@sanfordhealth.org', 'Larson, Dawn': 'Dawn.R.Larson@SanfordHealth.org',
-    'Johnson, Megan M': 'Megan.Johnson4@SanfordHealth.org', 'Jaenisch, Richard L': 'Richard.Jaenisch2@SanfordHealth.org',
-    'Oconnell, Cynthia J': 'Cindy.O\'Connell@SanfordHealth.org', 'Applegate, Kaylyn': 'KApplegate@mchsnd.org',
-    'Schwalbe, Mary Jo': 'MaryJo.Schwalbe@SanfordHealth.org', 'Samuelson, Lisa': 'lsamuelson@mchsnd.org',
-    'Sele, Hope': 'Hope.Sele@kmhc.net', 'Heibel, Hannah M': 'HHeibel@riverviewhealth.org',
-    'Schaffer, Jason': 'Jason.Schaffer@jrmcnd.com','Teske, Aimee': 'ATESKE@jrmcnd.com', 'Miller, Ashely': 'amiller@jrmcnd.com',
-    'Nordstrom, Greg D': 'gnordstrom@jrmcnd.com', 'Sobolik, Heather': 'Heather.Sobolik@jrmcnd.com',
-    'Breland, James': 'James.Breland@jrmcnd.com', 'Thorlakson, Jessica': 'jthorlakson@jrmcnd.com',
-    'Quandt, Madison': 'Madison.Quandt@SanfordHealth.org', 'LeFevre, Maria': 'Maria.Lefevre@jrmcnd.com',
-    'Bitz, Nathan A': 'nbitz@jrmcnd.com', 'Klundt, Nichole Rahn': 'nklundt@jrmcnd.com', 'Moser, Noelle': 'Noelle.Moser@jrmcnd.com',
-    'Loepp, Renae': 'Renae.Loepp@jrmcnd.com', 'Gjermundson, Hali J': 'HGjermundson@mchsnd.org', 'Anderson, Barbara J': 'Barbara.Anderson2@SanfordHealth.org',
-    'Farner, Brandi J': 'Brandi.Heyden@SanfordHealth.org', 'Johnson, Sandra':'Sandra.Johnson2@SanfordHealth.org',
-    'Anderson, Rebecca L' : 'REBECCA.LEE.ANDERSON@SANFORDHEALTH.ORG', "Dagen, Noelle P" : "Noelle.Dagen@kmhc.net", 
-    'Olson, Andrea I' : 'ANDREA.IONE.OLSON@SANFORDHEALTH.ORG', 'Olson, Jessica R' : 'christopher.lahn@sanfordhealth.org',
-    'Urdahl, Boyce' : 'BURDAHL@MCHSND.ORG', 'Salazar, Paul' : 'PSALAZAR@MCHSND.ORG','Wold, Hannah':'Hannah.Wold2@SanfordHealth.org',
-    'Arrington, Alex': 'ALEX.ARRINGTON@MCHSND.ORG', 'Hansen, Lauren F': 'LAUREN.HANSEN3@SANFORDHEALTH.ORG', 'Aquino Velasco, Alan A': 'ALAN.AQUINOVELASCO@SANFORDHEALTH.ORG',
-    'Anderson, Ashley': 'ASHLEY.ANDERSON3@SANFORDHEALTH.ORG','Faber, Ashley': 'ASHLEY.FABER@PERHAMHEALTH.ORG', 'nan': 'christopher.lahn@sanfordhealth.org',
-    'Berg, Renae': 'RENAE.BERG@JRMCND.COM', 'Windish, Allison': 'ALLISON.WINDISH2@JRMCND.COM', 'Duffy, Ashley': 'ASHLEY.DUFFY2@SANFORDHEALTH.ORG',}
+email_dict = {}
 
 # open the file(s) to process in the incoming folder and resave so it doesn't have a password on it.
 dirname = py.path.local(r'W:\SHARE8 Physics\Software\python\scripts\clahn\Radfeedback Database\access\Fargo\incoming_daily_reports')
@@ -75,7 +32,7 @@ for f in dirname.visit(fil='*.xlsx', bf=True):
     try:
         # This will unprotect workbook and save it again.
         xcl = win32.Dispatch('Excel.Application')
-        pw_str = 'Sanford1$'
+        pw_str = ''
         wb = xcl.Workbooks.Open(f, False, False, None, pw_str)
         wb.Password = ""
         xcl.DisplayAlerts = False

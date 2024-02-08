@@ -18,49 +18,12 @@ output_path1 = r'W:\SHARE8 Physics\Software\python\scripts\clahn\Radfeedback Dat
 
 
 # Set the email addresses of the recipients for the daily report
-recipients = ['jshure@uhd.org', 'Jill.Weatherford@SanfordHealth.org', 'Randy.Jarvis@SanfordHealth.org', 'Jolene.Cochran@SanfordHealth.org', 
-            'Bobbi.Glassmaker@SanfordHealth.org', 'Lacey.Busack@oahs.us', 'Jennifer.Altena@ochealthsystem.org', 'Christal.Serie@SanfordHealth.org', 
-            'Tara.Kazemba@SanfordHealth.org', 'Brooke.Kockelman@SanfordHealth.org', 'teri.biggins@sanfordhealth.org', 'Matthew.Berry@SanfordHealth.org', 
-            'Wade.Herrmann@SanfordHealth.org', 'Jimmy.Hornung@SanfordHealth.org', 'Ashley.Peck2@SanfordHealth.org', 'STREMICL@dcmhsd.org', 'Angela.Post@sanfordhealth.org',
-             'Christal.Serie@SanfordHealth.org', 'Tara.Kazemba@SanfordHealth.org', 'Kelsey.Shea@SanfordHealth.org', 'Todd.Boone@SanfordHealth.org', 
-             'Jill.Walker@SanfordHealth.org', 'Jessica.Voelker@SanfordHealth.org', 'Annie.Roggenbuck@sanfordhealth.org', 'Melissa.Relf@SanfordHealth.org', 
-             'Rob.Rea@SanfordHealth.org', 'Susan.Pritchard@SanfordHealth.org', 'Emily.Pociask@SanfordHealth.org',  
-             'Candace.McNamara@SanfordHealth.org', 'Melissa.Knudson@SanfordHealth.org', 'Jodi.Ketcham@SanfordHealth.org', 'Tammy.Eichacker@SanfordHealth.org', 
-             'Gregory.Mehrer@SanfordHealth.org', 'Dawn.Eichacker@SanfordHealth.org', 'Chad.Borns@SanfordHealth.org', 'christopher.lahn@sanfordhealth.org', 
-             'Andrew.Hoy@SanfordHealth.org', 'KATHERINE.BRECH@SANFORDHEALTH.ORG', 'Laura.Dehaan@SanfordHealth.org', 'Kareen.Hopfauf@SanfordHealth.org', 
-             'Brandi.Corbin@SanfordHealth.org', 'Jessica.Lessin@SanfordHealth.org', 'heath.quiring@windomareahealth.org', ' Megan.Bonstead@SanfordHealth.org', 
-             'Christin.Cournoyer@SanfordHealth.org', 'Michael.Timmerman@SanfordHealth.org',] 
+recipients = [] 
 # Used for testing to only send daily report to me
 # recipients = ['christopher.lahn@sanfordhealth.org', ]
 
 # Create dictionary to map technologist name to email address
-email_dict = {'Epic, User': 'christopher.lahn@sanfordhealth.org', 'St Peter, Meghan S': 'Meghan.St.Peter@SanfordHealth.org',
-    'Johnson, Joan L': 'Joan.L.Johnson@SanfordHealth.org', 'Quaas, Sarah L': 'christine.hoffmann@sanfordhealth.org',
-    'Antin, Loretta M': 'LorettaMaggie.Antin@SanfordHealth.org',
-    'Lindquist-Vevea, Darlene M': 'Darlene.Lindquist@sanfordhealth.org',
-    'Conroy Pittman, Tanya C': 'Tanya.Conroypittman@SanfordHealth.org', 'Gullicks, Kimberly J': 'Kim.Gullicks@kmhc.net',
-    'Krueger, Cathy': 'ckrueger@imagingsolutionsinc.com', 'Carlson, Kari A': 'Kari.Carlson3@SanfordHealth.org',
-    'Janke, Mary': 'Mary.Janke@PerhamHealth.org', 'Nielsen, Jessica R': 'Jessica.R.Nielsen@SanfordHealth.org',
-    'Fitzgerald, Jacquelyn J': 'Jackie.Fitzgerald@SanfordHealth.org', 'Sterling, Chelsee': 'CSterling@mchsnd.org',
-    'St. Germain, Heather J': 'Heather.St.germain@SanfordHealth.org',
-    'Christianson, Jennifer A': 'Jennifer.A.Christianson@sanfordhealth.org', 'Larson, Dawn': 'Dawn.R.Larson@SanfordHealth.org',
-    'Johnson, Megan M': 'Megan.Johnson4@SanfordHealth.org', 'Jaenisch, Richard L': 'Richard.Jaenisch2@SanfordHealth.org',
-    'Oconnell, Cynthia J': 'Cindy.O\'Connell@SanfordHealth.org', 'Applegate, Kaylyn': 'KApplegate@mchsnd.org',
-    'Hanson, Cheryl L': 'Cheryl.L.Hanson@sanfordhealth.org', 'Johnson, Deborah K': 'debby.johnson@sanfordhealth.org',
-    'Davis, Teresa M' : 'Teresa.M.Davis@sanfordhealth.org', 'Dahl, Lindsey D': 'ldahl@uhd.org' ,
-    'Shure, Jamie': 'jshure@uhd.org', 'Blagg, Tracy A': 'tblagg@uhd.org', 'Hollund, Betty J': 'bhollund@uhd.org',
-    'Donohue, Leslie A': 'ldonohue@uhd.org', 'Giesking, Amanda J': 'agiesking@uhd.org','Koch, Kali C': 'kkoch@uhd.org',
-    'Juliar, Taylor': 'tjuliar@uhd.org','Paul, Dayna L': 'dpaul@uhd.org', 'Meyer, Kristina': 'kmeyers@uhd.org',
-    'Manual, Julie': 'jmanual@uhd.org', 'Kessler, Elizabeth A': 'Betty.Kessler@sanfordhealth.org',
-    'Rockensock, Rachel M':'Rachel.Rockensock@oahs.us', 'Anderson, Barbara J': 'Barbara.Anderson2@SanfordHealth.org',
-    'Farner, Brandi J': 'Brandi.Heyden@SanfordHealth.org', 'Juliar, Taylor L': 'tjuliar@uhd.org', 'Busack, Lacey': 'Lacey.Busack@oahs.us',
-    'De Jesus, Jeneane': 'Jeneane.Dejesus@SanfordHealth.org', 'Martin, Nicole': 'NICOLE.MARTIN3@SANFORDHEALTH.ORG',
-    'Tillotson, Kristen P': 'Kristen.Tillotson@oahs.us', 'Johnson, Ashley': 'ASHLEY.JOHNSON12@SANFORDHEALTH.ORG',
-    'Meyer, Lori': 'Lori.Meyer2@SanfordHealth.org', 'Pullis, Wylie R': 'WYLIE.PULLIS@OAHS.US',
-    'Nordstrom, Greg D': 'GNORDSTROM@JRMCND.COM', 'De Haan, Anna': 'ANNA.DEHAAN@SANFORDHEALTH.ORG', 'Christians, Jamie': 'JAMIE.CHRISTIANS@WINDOMAREAHEALTH.ORG',
-    'Erickson, Carissa J': 'CARISSA.ERICKSON@WINDOMAREAHEALTH.ORG','Diekmann, Megan M': 'MEGAN.DIEKMANN@OAHS.US', 'Rossow, Taylor C': 'TAYLOR.ROSSOW@WINDOMAREAHEALTH.ORG',
-    'Obermeier, Jacklyn C': 'jobermeier@uhd.org', 'Newman, Robbie': 'Robbie.Newman@windomareahealth.org', 'Anderson, Christie': 'Christie.Anderson@windomareahealth.org',
-    'Quiring, Heath': 'heath.quiring@windomareahealth.org', 'nan': 'christopher.lahn@sanfordhealth.org',}
+email_dict = {}
 
 # open the file(s) to process in the incoming folder and resave so it doesn't have a password on it.
 dirname = py.path.local(r'W:\SHARE8 Physics\Software\python\scripts\clahn\Radfeedback Database\access\Sioux Falls\incoming_daily_reports')
@@ -68,7 +31,7 @@ for f in dirname.visit(fil='*.xlsx', bf=True):
     try:
         # This will unprotect workbook and save it again.
         xcl = win32.Dispatch('Excel.Application')
-        pw_str = 'Sanford1$'
+        pw_str = ''
         wb = xcl.Workbooks.Open(f, False, False, None, pw_str)
         wb.Password = ""
         xcl.DisplayAlerts = False

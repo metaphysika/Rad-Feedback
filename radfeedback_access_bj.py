@@ -18,39 +18,13 @@ output_path2 = r'\\internal.sanfordhealth.org@SSL\DavWWWRoot\departments\radiolo
 
 
 # Set the email addresses of the recipients for the daily report
-recipients = ['alicia.underdahl@sanfordhealth.org', 'Heidi.Earl@SanfordHealth.org', 'christopher.lahn@sanfordhealth.org', 'Amy.Tobey@SanfordHealth.org', 'Brent.Colby@sanfordhealth.org', 
-              'Amanda.Jesz@SanfordHealth.org', 'Zerak.Sarki@SanfordHealth.org', 'danielle.m.goetz@sanfordhealth.org', 'ryan.bosca@sanfordhealth.org', 'Ryan.Kalmoe@SanfordHealth.org',]
+recipients = []
 
 # Used for testing to only send daily report to me
 # recipients = ['christopher.lahn@sanfordhealth.org', ]
 
 # Create dictionary to map technologist name to email address
-email_dict = {'Epic, User': 'christopher.lahn@sanfordhealth.org', 'St Peter, Meghan S': 'Meghan.St.Peter@SanfordHealth.org',
-    'Johnson, Joan L': 'Joan.L.Johnson@SanfordHealth.org', 'Quaas, Sarah L': 'christine.hoffmann@sanfordhealth.org',
-    'Antin, Loretta M': 'LorettaMaggie.Antin@SanfordHealth.org',
-    'Lindquist-Vevea, Darlene M': 'Darlene.Lindquist@sanfordhealth.org',
-    'Conroy Pittman, Tanya C': 'Tanya.Conroypittman@SanfordHealth.org', 'Gullicks, Kimberly J': 'Kim.Gullicks@kmhc.net',
-    'Krueger, Cathy': 'ckrueger@imagingsolutionsinc.com', 'Carlson, Kari A': 'Kari.Carlson3@SanfordHealth.org',
-    'Janke, Mary': 'Mary.Janke@PerhamHealth.org', 'Nielsen, Jessica R': 'Jessica.R.Nielsen@SanfordHealth.org',
-    'Fitzgerald, Jacquelyn J': 'Jackie.Fitzgerald@SanfordHealth.org', 'Sterling, Chelsee': 'CSterling@mchsnd.org',
-    'St. Germain, Heather J': 'Heather.St.germain@SanfordHealth.org',
-    'Christianson, Jennifer A': 'Jennifer.A.Christianson@sanfordhealth.org', 'Larson, Dawn': 'Dawn.R.Larson@SanfordHealth.org',
-    'Johnson, Megan M': 'Megan.Johnson4@SanfordHealth.org', 'Jaenisch, Richard L': 'Richard.Jaenisch2@SanfordHealth.org',
-    'Oconnell, Cynthia J': 'Cindy.O\'Connell@SanfordHealth.org', 'Applegate, Kaylyn': 'KApplegate@mchsnd.org',
-    'Schwalbe, Mary Jo': 'MaryJo.Schwalbe@SanfordHealth.org', 'Samuelson, Lisa': 'lsamuelson@mchsnd.org',
-    'Sele, Hope': 'Hope.Sele@kmhc.net', 'Heibel, Hannah M': 'HHeibel@riverviewhealth.org',
-    'Schaffer, Jason': 'Jason.Schaffer@jrmcnd.com','Teske, Aimee': 'ATESKE@jrmcnd.com', 'Miller, Ashely': 'amiller@jrmcnd.com',
-    'Nordstrom, Greg D': 'gnordstrom@jrmcnd.com', 'Sobolik, Heather': 'Heather.Sobolik@jrmcnd.com',
-    'Breland, James': 'James.Breland@jrmcnd.com', 'Thorlakson, Jessica': 'jthorlakson@jrmcnd.com',
-    'Quandt, Madison': 'Madison.Quandt@SanfordHealth.org', 'LeFevre, Maria': 'Maria.Lefevre@jrmcnd.com',
-    'Bitz, Nathan A': 'nbitz@jrmcnd.com', 'Klundt, Nichole Rahn': 'nklundt@jrmcnd.com', 'Moser, Noelle': 'Noelle.Moser@jrmcnd.com',
-    'Loepp, Renae': 'Renae.Loepp@jrmcnd.com', 'Gjermundson, Hali J': 'HGjermundson@mchsnd.org', 'Anderson, Barbara J': 'Barbara.Anderson2@SanfordHealth.org',
-    'Farner, Brandi J': 'Brandi.Heyden@SanfordHealth.org', 'Johnson, Sandra':'Sandra.Johnson2@SanfordHealth.org',
-    'Anderson, Rebecca L' : 'REBECCA.LEE.ANDERSON@SANFORDHEALTH.ORG', "Dagen, Noelle P" : "Noelle.Dagen@kmhc.net", 
-    'Olson, Andrea I' : 'ANDREA.IONE.OLSON@SANFORDHEALTH.ORG', 'Olson, Jessica R' : 'christopher.lahn@sanfordhealth.org',
-    'Urdahl, Boyce' : 'BURDAHL@MCHSND.ORG', 'Salazar, Paul' : 'PSALAZAR@MCHSND.ORG','Wold, Hannah':'Hannah.Wold2@SanfordHealth.org',
-    'Arrington, Alex': 'ALEX.ARRINGTON@MCHSND.ORG', 'Hansen, Lauren F': 'LAUREN.HANSEN3@SANFORDHEALTH.ORG', 'Aquino Velasco, Alan A': 'ALAN.AQUINOVELASCO@SANFORDHEALTH.ORG',
-    'Anderson, Ashley': 'ASHLEY.ANDERSON3@SANFORDHEALTH.ORG','Faber, Ashley': 'ASHLEY.FABER@PERHAMHEALTH.ORG', 'nan': 'christopher.lahn@sanfordhealth.org',}
+email_dict = {}
 
 # open the file(s) to process in the incoming folder and resave so it doesn't have a password on it.
 dirname = py.path.local(r'W:\SHARE8 Physics\Software\python\scripts\clahn\Radfeedback Database\access\Bemidji\incoming_daily_reports')
@@ -58,7 +32,7 @@ for f in dirname.visit(fil='*.xlsx', bf=True):
     try:
         # This will unprotect workbook and save it again.
         xcl = win32.Dispatch('Excel.Application')
-        pw_str = 'Sanford1$'
+        pw_str = ''
         wb = xcl.Workbooks.Open(f, False, False, None, pw_str)
         wb.Password = ""
         xcl.DisplayAlerts = False
@@ -234,37 +208,6 @@ for i, row in daily_df.iterrows():
         "\nIf you received this message by mistake, contact physics@sanfordhealth.org. \nImaging Physics \nphysics@sanfordhealth.org")
         
         mail.Send()
-    # else:       
-    #     # Create email with row data in the body
-    #     mail = outlook.CreateItem(0)
-    #     mail.To = technologist_email
-    #     mail.Subject = 'Automated Message:  Image Quality Feedback'
-    #     mail.Body = ''
-    #     # Add the message to the email body
-    #     mail.Body += ("Hello,\n\nThis is an automated message. No reply is necessary. "
-    #                 "\n\nAn image that you completed in Radiant was flagged for image quality review by a radiologist."
-    #                 "\nPlease, use the accession number provided here to look up your exam in PACS and review the image along with the radiologist's feedback provided in this email."
-    #                 "\n\nNotes:\n1. Please, respond via email to the radiologist listed below if they requested so in the Radiologist Notes section."
-    #                 "\n2. nan = no value entered by Radiologist."
-    #                 "\n3. If Radiologist Reason for Image Flag includes or is only Physics, the exam was flagged for possible equipment issues and will be reviewed by Imaging Physics, as well. Contact Imaging Physics if you have any input which may help us resolve the potential equipment issue."
-    #                 )
-
-    #     # Add each column of data to the email body
-    #     for col_name, col_val in row.iteritems():
-    #         # do not add mrn column to email body
-    #         if col_name != 'mrn':
-    #             # Check if the column name needs to be mapped to a new one
-    #             if col_name in col_name_map:
-    #                 col_name = col_name_map[col_name]
-            
-    #             mail.Body += f"{col_name}: {col_val}\n"
-
-    #     # Add footer to the message to the email body
-    #     mail.Body += ("\nPlease, contact your supervisor if you have any further questions. \nThank you, "
-    #     "\nIf you received this message by mistake, contact physics@sanfordhealth.org. \nImaging Physics \nphysics@sanfordhealth.org")
-
-        
-    #     mail.Send()
 
 # Delete the Excel files in the incoming folder
 for file_name in os.listdir(folder_path):
