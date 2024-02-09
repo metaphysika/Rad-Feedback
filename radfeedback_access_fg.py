@@ -6,15 +6,15 @@ from datetime import datetime
 import py
 
 # Set the folder path to search for Excel files
-folder_path = r'W:\SHARE8 Physics\Software\python\scripts\clahn\Radfeedback Database\access\Fargo\incoming_daily_reports'
+folder_path = 'path to file'
 
 # Set the output file path for the 'daily' table archive
 today_date_str = datetime.today().strftime('%Y-%m-%d-%H-%M-%S')
-output_path = f'W:\\SHARE8 Physics\\Software\\python\scripts\\clahn\Radfeedback Database\\access\\Fargo\\archive_daily_reports\\{today_date_str}-dailyreport_fg.xlsx'
+output_path = 'path to file'
 
 # Set the output file path for the 'fargo' table archives
-output_path1 = r'W:\SHARE8 Physics\Software\python\scripts\clahn\Radfeedback Database\access\Fargo\masterfile\fargo_master.xlsx'
-output_path2 = r'\\internal.sanfordhealth.org@SSL\DavWWWRoot\departments\radiology\private\fargo\qcforms\Shared Documents\EPIC_Rad_Feedback_Master'
+output_path1 = 'path to file'
+output_path2 = 'path to file'
 
 
 # Set the email addresses of the recipients for the daily report
@@ -27,7 +27,7 @@ recipients = []
 email_dict = {}
 
 # open the file(s) to process in the incoming folder and resave so it doesn't have a password on it.
-dirname = py.path.local(r'W:\SHARE8 Physics\Software\python\scripts\clahn\Radfeedback Database\access\Fargo\incoming_daily_reports')
+dirname = py.path.local('path to file')
 for f in dirname.visit(fil='*.xlsx', bf=True):
     try:
         # This will unprotect workbook and save it again.
@@ -42,7 +42,7 @@ for f in dirname.visit(fil='*.xlsx', bf=True):
         pass
 
 # Connect to Microsoft Access database
-conn = pyodbc.connect(r'Driver={Microsoft Access Driver (*.mdb, *.accdb)};DBQ=C:\Users\clahn\Sanford Health\Imaging Physics - Documents\Radfeedback\radfeedback_database.accdb;')
+conn = pyodbc.connect('path to file')
 
 # Create cursor to execute SQL commands
 cursor = conn.cursor()
@@ -94,13 +94,11 @@ fargo_df.to_excel(output_path1, index=False)
 # fargo_df.to_excel(output_path2, index=False)
 
 #Copy master to SharePoint
-fileMaster = py.path.local(r'W:\SHARE8 Physics\Software\python\scripts\clahn\Radfeedback Database\access\Fargo\masterfile\fargo_master.xlsx')
+fileMaster = py.path.local('path to file')
 
 try:
-    fileMaster.copy(py.path.local(r'\\internal.sanfordhealth.org@SSL\DavWWWRoot\departments'
-                                  r'\radiology\private\fargo\qcforms\Shared Documents\EPIC_Rad_Feedback_Master'))
-    fileMaster.copy(py.path.local(r'\\internal.sanfordhealth.org@SSL\DavWWWRoot\departments'
-                                  r'\radiology\private\RadBIS\physics\Shared Documents\epic_rad_feedback_master'))
+    fileMaster.copy(py.path.local('path to file'))
+    fileMaster.copy(py.path.local('path to file'))
 
 except Exception as err:
     print("you may have not been signed in.")
@@ -186,7 +184,7 @@ for i, row in daily_df.iterrows():
     if "Physics" in row['quality_element']:
         # Send separate email to physics@sanfordhealth.org
         mail = outlook.CreateItem(0)
-        mail.To = "physics@sanfordhealth.org; christopher.lahn@sanfordhealth.org"
+        mail.To = ""
         mail.Subject = 'Automated Message:  Image Quality Feedback'
         mail.Body = ''
         
